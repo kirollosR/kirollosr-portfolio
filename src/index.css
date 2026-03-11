@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0a1929;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1929;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0167a4;
+}
+
+/* Terminal Styles */
+.terminal-window {
+  background: #132f4c;
+  border: 1px solid #1e3a5f;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(30, 58, 95, 0.5);
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #28ca41; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #8899a6;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.terminal-prompt {
+  color: #ed5f1e;
+}
+
+.terminal-command {
+  color: #febf00;
+}
+
+.terminal-output {
+  color: #94a3b8;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: #ed5f1e;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ed5f1e;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, border-color 0.3s;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  border-color: #febf00;
+  background: rgba(254, 191, 0, 0.1);
+}
+
+.cursor-dot {
+  width: 4px;
+  height: 4px;
+  background: #ed5f1e;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s;
+}
+
+/* Section Styles */
+.section-heading {
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.section-heading .line-number {
+  color: #1e3a5f;
+  font-size: 14px;
+  min-width: 32px;
+}
+
+.section-heading .keyword {
+  color: #0167a4;
+}
+
+.section-heading .function-name {
+  color: #febf00;
+}
+
+.section-heading .bracket {
+  color: #ed5f1e;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(19, 47, 76, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 58, 95, 0.5);
+}
+
+/* Glowing Effect */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(237, 95, 30, 0.15);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(254, 191, 0, 0.15);
+}
+
+/* IDE Contact Form */
+.ide-window {
+  background: #132f4c;
+  border: 1px solid #1e3a5f;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.ide-tab-bar {
+  display: flex;
+  background: rgba(10, 25, 41, 0.8);
+  border-bottom: 1px solid #1e3a5f;
+}
+
+.ide-tab {
+  padding: 8px 20px;
+  font-size: 13px;
+  color: #8899a6;
+  border-right: 1px solid #1e3a5f;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ide-tab.active {
+  background: #132f4c;
+  color: #e2e8f0;
+  border-bottom: 2px solid #ed5f1e;
+}
+
+.ide-line-numbers {
+  color: #1e3a5f;
+  -webkit-user-select: none;
+  user-select: none;
+  text-align: right;
+  padding-right: 16px;
+  border-right: 1px solid rgba(30, 58, 95, 0.3);
+  font-size: 14px;
+  line-height: 2.2;
+}
+
+.ide-code-area {
+  font-size: 14px;
+  line-height: 2.2;
+  padding-left: 16px;
+}
+
+/* Skill Tag */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(30, 58, 95, 0.4);
+  border: 1px solid rgba(30, 58, 95, 0.6);
+  color: #94a3b8;
+  transition: all 0.3s;
+}
+
+.skill-tag:hover {
+  border-color: #ed5f1e;
+  color: #ed5f1e;
+  background: rgba(237, 95, 30, 0.1);
+}
+
+/* Project Card */
+.project-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #132f4c;
+  border: 1px solid #1e3a5f;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  border-color: #ed5f1e;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(237, 95, 30, 0.15);
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+}
+
+.side-menu-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(19, 47, 76, 0.8);
+  border: 1px solid #1e3a5f;
+  color: #8899a6;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.side-menu-item:hover,
+.side-menu-item.active {
+  background: rgba(237, 95, 30, 0.2);
+  border-color: #ed5f1e;
+  color: #ed5f1e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .custom-cursor,
+  .cursor-dot {
+    display: none !important;
+  }
+
+  .side-menu {
+    bottom: 0;
+    top: auto;
+    right: 0;
+    left: 0;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    background: rgba(10, 25, 41, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #1e3a5f;
+    padding: 6px;
+  }
+
+  .terminal-body {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .ide-code-area {
+    font-size: 12px;
+  }
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #ed5f1e, #febf00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
