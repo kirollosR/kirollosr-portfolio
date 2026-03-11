@@ -25,18 +25,28 @@ const Projects = () => {
         const repos = await res.json();
         if (!Array.isArray(repos)) return;
 
-        // Fetch commit count for each repo
+        // Fetch commit count for each repo (only commits by the current user)
         const reposWithCommits = await Promise.all(
           repos.map(async (repo) => {
             try {
-              const contribRes = await fetch(
-                `https://api.github.com/repos/${repo.full_name}/contributors?per_page=1`,
+              const commitsRes = await fetch(
+                `https://api.github.com/repos/${repo.full_name}/commits?author=${personal.githubUsername}&per_page=1`,
                 { headers: authHeaders }
               );
-              const contribs = await contribRes.json();
-              const totalCommits = Array.isArray(contribs)
-                ? contribs.reduce((sum, c) => sum + (c.contributions || 0), 0)
-                : 0;
+              // GitHub returns total count in Link header for paginated results
+              const linkHeader = commitsRes.headers.get('link');
+              let totalCommits = 0;
+              
+              if (linkHeader) {
+                // Parse the link header to get the last page number
+                const lastMatch = linkHeader.match(/&page=(\d+)>; rel="last"/);
+                totalCommits = lastMatch ? parseInt(lastMatch[1], 10) : 0;
+              } else {
+                // If no link header, check if there's at least one commit
+                const commits = await commitsRes.json();
+                totalCommits = Array.isArray(commits) && commits.length > 0 ? 1 : 0;
+              }
+              
               return { ...repo, commitCount: totalCommits };
             } catch {
               return { ...repo, commitCount: 0 };
