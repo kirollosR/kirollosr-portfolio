@@ -5,7 +5,7 @@ import {
   SiPython, SiJavascript, SiPhp, SiScala, SiHtml5, SiCss,
   SiReact, SiNodedotjs, SiExpress, SiFastapi, SiSpringboot,
   SiMysql, SiMongodb, SiDocker, SiGit, SiTensorflow,
-  SiTailwindcss, SiLinux, SiJest, SiJunit5,
+  SiTailwindcss, SiLinux, SiJest, SiJunit5, SiTypescript,
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { TbApi, TbBrain } from 'react-icons/tb';
@@ -37,6 +37,7 @@ const skillIconMap = {
   'Tailwind CSS': SiTailwindcss,
   Jest: SiJest,
   JUnit5: SiJunit5,
+  TypeScript: SiTypescript,
 };
 
 // Rotating 3D globe with tech icons

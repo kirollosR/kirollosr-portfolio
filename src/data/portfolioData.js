@@ -31,7 +31,7 @@ const portfolioData = {
   skills: {
     languages: {
       title: 'Languages',
-      items: ['Python', 'JavaScript', 'PHP', 'Java', 'Scala'],
+      items: ['Python', 'JavaScript', 'TypeScript', 'PHP', 'Java', 'Scala'],
     },
     webDev: {
       title: 'Web Development',
@@ -55,18 +55,18 @@ const portfolioData = {
     },
     testing: {
         title: 'Testing',
-        items: ['JUnit', 'Jest', 'Supertest'],
+        items: ['JUnit5', 'Jest', 'Supertest'],
     }
   },
 
   // All skill names for the globe visualization
   allSkills: [
-    'Python', 'JavaScript', 'PHP', 'Java', 'Scala',
+    'Python', 'JavaScript', 'TypeScript', 'PHP', 'Java', 'Scala',
     'HTML', 'CSS', 'React.js', 'Node.js', 'Express.js',
     'FastAPI', 'Spring Boot', 'REST APIs',
     'MySQL', 'MongoDB', 'Docker',
     'Microservices', 'Git', 'TensorFlow',
-    'GANs', 'Linux', 'Tailwind CSS',
+    'GANs', 'Linux', 'Tailwind CSS', 'Jest', 'JUnit5',
   ],
 
   // Experience
