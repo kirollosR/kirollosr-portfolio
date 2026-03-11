@@ -92,7 +92,7 @@ const Projects = () => {
         </motion.h3>
 
         {/* Featured Projects */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {featured.map((project, i) => (
             <motion.div
               key={project.title}
